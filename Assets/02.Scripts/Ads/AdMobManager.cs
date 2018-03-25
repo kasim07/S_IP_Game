@@ -1,20 +1,19 @@
-﻿using UnityEngine;
-using System.Collections;
-using admob;
+﻿using admob;
 
-public class AdMobManager : MonoBehaviour {
-    public static AdMobManager Instance;
-    private string android_banner_id = "ca-app-pub-8512629740125748/6803655315";
-    private string android_interstitial_id = "ca-app-pub-8512629740125748/5965403719";
+public class AdMobManager : SingletonManager<AdMobManager> {
+    
+    private string android_banner_id = "ca-app-pub-8512629740125748/7650284497";
+    private string android_interstitial_id = "ca-app-pub-8512629740125748~1276447832";
 
-    public bool isShow;
-
+    public bool m_ShowBanner;
 
     void Start()
     {
-        Instance = this;
-        isShow = true;
-        initAdmob();
+        if (m_ShowBanner == true)
+        {
+            initAdmob();
+            ShowBannerAd();
+        }
     }
 
     void initAdmob()
@@ -39,19 +38,15 @@ public class AdMobManager : MonoBehaviour {
     void onNativeBannerEvent(string eventName, string msg)
     {
     }
-    private void fixTransform(Vector3 size, Vector3 pos)
-    {
-    }
 
     public void ShowBannerAd()
     {
-        isShow = true;
         Admob.Instance().showBannerRelative(AdSize.Banner, AdPosition.TOP_CENTER, 0);
     }
 
-    public void CloseBannerAd()
+    public void HideBannerAd()
     {
-        isShow = false;
-        Admob.Instance().removeBanner();
+        if (m_ShowBanner == true)
+            Admob.Instance().removeBanner();
     }
 }
