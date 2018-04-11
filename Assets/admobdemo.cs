@@ -3,13 +3,13 @@ using System.Collections;
 using admob;
 public class admobdemo : MonoBehaviour {
 	void Start () {
-        Debug.Log("start unity demo-------------");
+        UnityEngine.Debug.Log("start unity demo-------------");
          initAdmob();
 	}
 	
 	void Update () {
 	    if (Input.GetKeyUp (KeyCode.Escape)) {
-            Debug.Log(KeyCode.Escape+"-----------------");
+            UnityEngine.Debug.Log(KeyCode.Escape+"-----------------");
 	    }
     }
     Admob ad;
@@ -25,8 +25,8 @@ public class admobdemo : MonoBehaviour {
            //ad.setTesting(true);//show test ad
             ad.setGender(AdmobGender.MALE);
             string[] keywords = { "game","crash","male game"};
-          //  ad.setKeywords(keywords);//set keywords for ad
-            Debug.Log("admob inited -------------");
+        //  ad.setKeywords(keywords);//set keywords for ad
+        UnityEngine.Debug.Log("admob inited -------------");
         
     }
 	void OnGUI(){
@@ -82,7 +82,7 @@ public class admobdemo : MonoBehaviour {
 	}
     void onInterstitialEvent(string eventName, string msg)
     {
-        Debug.Log("handler onAdmobEvent---" + eventName + "   " + msg);
+        UnityEngine.Debug.Log("handler onAdmobEvent---" + eventName + "   " + msg);
         if (eventName == AdmobEvent.onAdLoaded)
         {
             Admob.Instance().showInterstitial();
@@ -90,14 +90,14 @@ public class admobdemo : MonoBehaviour {
     }
     void onBannerEvent(string eventName, string msg)
     {
-        Debug.Log("handler onAdmobBannerEvent---" + eventName + "   " + msg);
+        UnityEngine.Debug.Log("handler onAdmobBannerEvent---" + eventName + "   " + msg);
     }
     void onRewardedVideoEvent(string eventName, string msg)
     {
-        Debug.Log("handler onRewardedVideoEvent---" + eventName + "  rewarded: " + msg);
+        UnityEngine.Debug.Log("handler onRewardedVideoEvent---" + eventName + "  rewarded: " + msg);
     }
     void onNativeBannerEvent(string eventName, string msg)
     {
-        Debug.Log("handler onAdmobNativeBannerEvent---" + eventName + "   " + msg);
+        UnityEngine.Debug.Log("handler onAdmobNativeBannerEvent---" + eventName + "   " + msg);
     }
 }

@@ -204,7 +204,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 						{
 							if (!materials[j].HasProperty("_GradientTex"))
 							{
-								Debug.LogError(string.Format("Cant find parameter '_GradientTex' in material '{0}'", materials[j].name));
+                                UnityEngine.Debug.LogError(string.Format("Cant find parameter '_GradientTex' in material '{0}'", materials[j].name));
 							}
 							else if (materials[j].GetTexture("_GradientTex") != tex)
 							{

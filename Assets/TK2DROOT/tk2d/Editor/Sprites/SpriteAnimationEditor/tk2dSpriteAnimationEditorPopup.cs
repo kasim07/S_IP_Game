@@ -187,7 +187,7 @@ public class tk2dSpriteAnimationEditorPopup : EditorWindow
 			}
 			if (selectedClipId == -1)
 			{
-				if (value != null) Debug.LogError("Unable to find clip");
+				if (value != null) UnityEngine.Debug.LogError("Unable to find clip");
 				_selectedClip = null;
 			}
 		}

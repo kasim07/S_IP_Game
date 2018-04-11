@@ -56,7 +56,7 @@ public class NGUIDebug : MonoBehaviour
 	static void LogString (string text)
 	{
 #if UNITY_EDITOR
-		Debug.Log(text);
+        UnityEngine.Debug.Log(text);
 #else
 		if (Application.isPlaying)
 		{
@@ -118,10 +118,10 @@ public class NGUIDebug : MonoBehaviour
 		Vector3 c = b.center;
 		Vector3 v0 = b.center - b.extents;
 		Vector3 v1 = b.center + b.extents;
-		Debug.DrawLine(new Vector3(v0.x, v0.y, c.z), new Vector3(v1.x, v0.y, c.z), Color.red);
-		Debug.DrawLine(new Vector3(v0.x, v0.y, c.z), new Vector3(v0.x, v1.y, c.z), Color.red);
-		Debug.DrawLine(new Vector3(v1.x, v0.y, c.z), new Vector3(v1.x, v1.y, c.z), Color.red);
-		Debug.DrawLine(new Vector3(v0.x, v1.y, c.z), new Vector3(v1.x, v1.y, c.z), Color.red);
+        UnityEngine.Debug.DrawLine(new Vector3(v0.x, v0.y, c.z), new Vector3(v1.x, v0.y, c.z), Color.red);
+        UnityEngine.Debug.DrawLine(new Vector3(v0.x, v0.y, c.z), new Vector3(v0.x, v1.y, c.z), Color.red);
+        UnityEngine.Debug.DrawLine(new Vector3(v1.x, v0.y, c.z), new Vector3(v1.x, v1.y, c.z), Color.red);
+        UnityEngine.Debug.DrawLine(new Vector3(v0.x, v1.y, c.z), new Vector3(v1.x, v1.y, c.z), Color.red);
 	}
 	
 	void OnGUI()

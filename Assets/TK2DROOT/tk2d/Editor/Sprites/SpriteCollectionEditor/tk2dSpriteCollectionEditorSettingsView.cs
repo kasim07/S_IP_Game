@@ -67,7 +67,7 @@ namespace tk2dEditor.SpriteCollectionEditor
 					Material mtl = null;
 					if (sourceIndex == -1)
 					{
-						Debug.LogError("Sprite collection has null materials. Fix this in the debug inspector.");
+                        UnityEngine.Debug.LogError("Sprite collection has null materials. Fix this in the debug inspector.");
 					}
 					else
 					{

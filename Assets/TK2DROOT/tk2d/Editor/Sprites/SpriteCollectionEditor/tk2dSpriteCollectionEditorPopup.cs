@@ -682,8 +682,8 @@ public class tk2dSpriteCollectionEditorPopup : EditorWindow, IEditorHost
 			case SpriteCollectionEditorEntry.Type.SpriteSheet: return "Sprite Sheets";
 			case SpriteCollectionEditorEntry.Type.Font: return "Fonts";
 		}
-		
-		Debug.LogError("Unhandled type");
+
+        UnityEngine.Debug.LogError("Unhandled type");
 		return "";
 	}
 

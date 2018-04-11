@@ -51,7 +51,7 @@ public class tk2dTileMapEditor : Editor, ITileMapEditorHost
 			return _brushRenderer;
 		}
 		set {
-			if (value != null) { Debug.LogError("Only alloyed to set to null"); return; }
+			if (value != null) { UnityEngine.Debug.LogError("Only alloyed to set to null"); return; }
 			if (_brushRenderer != null)
 			{
 				_brushRenderer.Destroy();
@@ -67,7 +67,7 @@ public class tk2dTileMapEditor : Editor, ITileMapEditorHost
 			return _guiBrushBuilder;
 		}
 		set {
-			if (value != null) { Debug.LogError("Only allowed to set to null"); return; }
+			if (value != null) { UnityEngine.Debug.LogError("Only allowed to set to null"); return; }
 			if (_guiBrushBuilder != null)
 			{
 				_guiBrushBuilder = null;
@@ -950,7 +950,7 @@ public class tk2dTileMapEditor : Editor, ITileMapEditorHost
 			{
 				if (activeBrush.name.Length == 0)
 				{
-					Debug.LogError("Active brush needs a name");
+                    UnityEngine.Debug.LogError("Active brush needs a name");
 				}
 				else
 				{

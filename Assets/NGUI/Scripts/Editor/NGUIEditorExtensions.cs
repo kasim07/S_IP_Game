@@ -72,7 +72,7 @@ public static class NGUIEditorExtensions
 		}
 		catch (System.Exception ex)
 		{
-			Debug.LogError(ex.Message);
+            UnityEngine.Debug.LogError(ex.Message);
 			return false;
 		}
 		finally

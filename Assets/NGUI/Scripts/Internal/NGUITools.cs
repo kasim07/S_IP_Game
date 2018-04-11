@@ -1494,7 +1494,7 @@ static public class NGUITools
 		}
 		catch (System.Exception ex)
 		{
-			Debug.LogError(ex.Message);
+            UnityEngine.Debug.LogError(ex.Message);
 			return false;
 		}
 

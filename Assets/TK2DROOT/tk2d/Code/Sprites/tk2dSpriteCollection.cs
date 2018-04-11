@@ -669,7 +669,7 @@ public class tk2dSpriteCollection : MonoBehaviour
 		if (version == CURRENT_VERSION)
 			return;
 
-		Debug.Log("SpriteCollection '" + this.name + "' - Upgraded from version " + version.ToString());
+        UnityEngine.Debug.Log("SpriteCollection '" + this.name + "' - Upgraded from version " + version.ToString());
 
 		if (version == 0)
 		{

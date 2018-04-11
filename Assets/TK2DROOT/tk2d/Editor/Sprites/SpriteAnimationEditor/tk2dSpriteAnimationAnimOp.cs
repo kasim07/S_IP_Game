@@ -232,7 +232,7 @@ namespace tk2dEditor.SpriteAnimationEditor
 						string frameCountStr = line.Substring(splitIndex + 1, line.Length - 1 - splitIndex);
 						if (!System.Int32.TryParse(frameCountStr, out frameCount))
 						{
-							Debug.LogError("Parse error in line " + lineNumber.ToString());
+                            UnityEngine.Debug.LogError("Parse error in line " + lineNumber.ToString());
 							return false;
 						}
 						frameCount = Mathf.Max(frameCount, 1);
@@ -240,7 +240,7 @@ namespace tk2dEditor.SpriteAnimationEditor
 					int spriteId = coll.GetSpriteIdByName(spriteName, -1);
 					if (spriteId == -1)
 					{
-						Debug.LogError(string.Format("Unable to find sprite '{0}' in sprite collection", spriteName));
+                        UnityEngine.Debug.LogError(string.Format("Unable to find sprite '{0}' in sprite collection", spriteName));
 						return false;
 					}
 					spriteIds.Add(spriteId);

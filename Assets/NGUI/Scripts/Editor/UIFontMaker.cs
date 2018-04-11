@@ -210,7 +210,7 @@ public class UIFontMaker : EditorWindow
 								NGUISettings.currentPath = System.IO.Path.GetDirectoryName(path);
 								NGUISettings.pathToFreeType = path;
 							}
-							else Debug.LogError("The library must be named '" + filename + "'");
+							else UnityEngine.Debug.LogError("The library must be named '" + filename + "'");
 						}
 					}
 					GUILayout.Space(20f);

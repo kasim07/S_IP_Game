@@ -419,7 +419,7 @@ namespace tk2dRuntime.TileMap
 				y0 = h - 1; y1 = -1; dy = -1;
 				break;
 			default:
-				Debug.LogError("Unhandled sort method");
+                    UnityEngine.Debug.LogError("Unhandled sort method");
 				goto case tk2dTileMapData.SortMethod.BottomLeft;
 			}
 		}

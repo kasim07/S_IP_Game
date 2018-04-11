@@ -518,7 +518,7 @@ public class tk2dSpriteCollectionBuilder
 		}
 
 		if (missingTextures.Length > 0) {
-			Debug.LogError(string.Format("Error in sprite collection '{0}'\n{1}", gen.name, missingTextures));
+            UnityEngine.Debug.LogError(string.Format("Error in sprite collection '{0}'\n{1}", gen.name, missingTextures));
 		}
 
 		return missingTextures.Length == 0;
@@ -1650,7 +1650,7 @@ public class tk2dSpriteCollectionBuilder
                 MeshFilter meshFilter = instantiated.GetComponentInChildren<MeshFilter>();
                 if (meshFilter == null)
                 {
-                    Debug.LogError("Unable to find mesh");
+                    UnityEngine.Debug.LogError("Unable to find mesh");
                     GameObject.DestroyImmediate(instantiated);
                 }
                 else
@@ -1749,8 +1749,8 @@ public class tk2dSpriteCollectionBuilder
 
 							if (thisAtlasIndex != atlasIndex)
 							{
-								// This is a serious problem, dicing is not supported when multi atlas output is selected
-								Debug.Break();
+                                // This is a serious problem, dicing is not supported when multi atlas output is selected
+                                UnityEngine.Debug.Break();
 							}
 
 							fwidth = packer.width;

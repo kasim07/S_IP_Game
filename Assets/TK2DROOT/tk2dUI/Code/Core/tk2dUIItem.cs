@@ -125,7 +125,7 @@ public class tk2dUIItem : MonoBehaviour
     void Start()
     {
         if (tk2dUIManager.Instance == null) {
-            Debug.LogError("Unable to find tk2dUIManager. Please create a tk2dUIManager in the scene before proceeding.");
+            UnityEngine.Debug.LogError("Unable to find tk2dUIManager. Please create a tk2dUIManager in the scene before proceeding.");
         }
 
         if (isChildOfAnotherUIItem && parentUIItem==null)

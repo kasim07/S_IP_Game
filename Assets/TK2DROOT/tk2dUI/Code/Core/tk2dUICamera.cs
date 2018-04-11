@@ -42,13 +42,13 @@ public class tk2dUICamera : MonoBehaviour {
 
 	void OnEnable() {
 		if (GetComponent<Camera>() == null) {
-			Debug.LogError("tk2dUICamera should only be attached to a camera.");
+            UnityEngine.Debug.LogError("tk2dUICamera should only be attached to a camera.");
 			enabled = false;
 			return;
 		}
 
 		if (!GetComponent<Camera>().orthographic && raycastType == tk2dRaycastType.Physics2D) {
-			Debug.LogError("tk2dUICamera - Physics2D raycast only works with orthographic cameras.");
+            UnityEngine.Debug.LogError("tk2dUICamera - Physics2D raycast only works with orthographic cameras.");
 			enabled = false;
 			return;
 		}

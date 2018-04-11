@@ -332,7 +332,7 @@ static public class FreeType
 							}
 							catch (Exception ex)
 							{
-								Debug.LogWarning("Unable to copy " + filename + " to /usr/local/lib:\n" + ex.Message);
+                                UnityEngine.Debug.LogWarning("Unable to copy " + filename + " to /usr/local/lib:\n" + ex.Message);
 							}
 						}
 					}
@@ -426,7 +426,7 @@ static public class FreeType
 
 		if (FT_Init_FreeType(out lib) != 0)
 		{
-			Debug.LogError("Failed to initialize FreeType");
+            UnityEngine.Debug.LogError("Failed to initialize FreeType");
 			return null;
 		}
 
@@ -437,7 +437,7 @@ static public class FreeType
 		{
 			if (FT_New_Face(lib, fileName, 0, out face) != 0)
 			{
-				Debug.LogError("Unable to use the chosen font (FT_New_Face).");
+                UnityEngine.Debug.LogError("Unable to use the chosen font (FT_New_Face).");
 			}
 			else
 			{
@@ -481,7 +481,7 @@ static public class FreeType
 
 		if (FT_Init_FreeType(out lib) != 0)
 		{
-			Debug.LogError("Failed to initialize FreeType");
+            UnityEngine.Debug.LogError("Failed to initialize FreeType");
 			return false;
 		}
 
@@ -490,11 +490,11 @@ static public class FreeType
 
 		if (!File.Exists(fileName))
 		{
-			Debug.LogError("Unable to use the chosen font.");
+            UnityEngine.Debug.LogError("Unable to use the chosen font.");
 		}
 		else if (FT_New_Face(lib, fileName, faceIndex, out face) != 0)
 		{
-			Debug.LogError("Unable to use the chosen font (FT_New_Face).");
+            UnityEngine.Debug.LogError("Unable to use the chosen font (FT_New_Face).");
 		}
 		else
 		{

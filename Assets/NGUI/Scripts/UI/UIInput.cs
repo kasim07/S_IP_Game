@@ -506,7 +506,7 @@ public class UIInput : MonoBehaviour
 			if (label.alignment == NGUIText.Alignment.Justified)
 			{
 				label.alignment = NGUIText.Alignment.Left;
-				Debug.LogWarning("Input fields using labels with justified alignment are not supported at this time", this);
+                UnityEngine.Debug.LogWarning("Input fields using labels with justified alignment are not supported at this time", this);
 			}
 
 			mAlignment = label.alignment;

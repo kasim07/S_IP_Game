@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IUnit {
+
     void Shoot();
+    void Action();
+    void Move(Vector2 position);
     void Hit(uint damage);
     void Dead();
     UnitData GetData();
     void SetData(UnitData data);
     Vector2 GetPosition();
     void SetPosition(Vector2 position);
-    void MovePosition(Vector2 position);
 }
 
 
@@ -36,6 +38,6 @@ public enum UnitType
 {
     Player,
     Enemy,
-    PlayerShoot,
-    EnemyShoot,
+    PlayerBullet,
+    EnemyBullet,
 }

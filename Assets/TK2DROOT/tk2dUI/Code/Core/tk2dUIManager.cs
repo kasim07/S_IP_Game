@@ -61,7 +61,7 @@ public class tk2dUIManager : MonoBehaviour
                 return camera.HostCamera;
             }
         }
-        Debug.LogError("Unable to find UI camera for " + go.name);
+        UnityEngine.Debug.LogError("Unable to find UI camera for " + go.name);
         return null;
     }
 
@@ -246,7 +246,7 @@ public class tk2dUIManager : MonoBehaviour
             instance = this;
 
             if (instance.transform.childCount != 0) {
-                Debug.LogError("You should not attach anything to the tk2dUIManager object. " +
+                UnityEngine.Debug.LogError("You should not attach anything to the tk2dUIManager object. " +
                     "The tk2dUIManager will not get destroyed between scene switches and any children will persist as well.");
             }
 
@@ -259,7 +259,7 @@ public class tk2dUIManager : MonoBehaviour
             //can only be one tk2dUIManager at one-time, if another one is found Destroy it
             if (instance != this)
             {
-                Debug.Log("Discarding unnecessary tk2dUIManager instance.");
+                UnityEngine.Debug.Log("Discarding unnecessary tk2dUIManager instance.");
 
                 if (uiCamera != null) {
                     HookUpLegacyCamera(uiCamera);
@@ -286,13 +286,13 @@ public class tk2dUIManager : MonoBehaviour
 
     void Start() {
         if (uiCamera != null) {
-            Debug.Log("It is no longer necessary to hook up a camera to the tk2dUIManager. You can simply attach a tk2dUICamera script to the cameras that interact with UI.");
+            UnityEngine.Debug.Log("It is no longer necessary to hook up a camera to the tk2dUIManager. You can simply attach a tk2dUICamera script to the cameras that interact with UI.");
             HookUpLegacyCamera(uiCamera);
             uiCamera = null;
         }
 
         if (allCameras.Count == 0) {
-            Debug.LogError("Unable to find any tk2dUICameras, and no cameras are connected to the tk2dUIManager. You will not be able to interact with the UI.");
+            UnityEngine.Debug.LogError("Unable to find any tk2dUICameras, and no cameras are connected to the tk2dUIManager. You will not be able to interact with the UI.");
         }
     }
 

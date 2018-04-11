@@ -634,7 +634,7 @@ public class tk2dCameraEditor : Editor
 		Camera[] allCameras = Object.FindObjectsOfType(typeof(Camera)) as Camera[];
 		foreach (Camera cam in allCameras) {
 			if (cam.cullingMask == -1) {
-				Debug.LogError(string.Format("Camera: {0} has Culling Mask set to Everything. This will cause the scene to be drawn multiple times. Did you mean to do this?", cam.name ));
+                UnityEngine.Debug.LogError(string.Format("Camera: {0} has Culling Mask set to Everything. This will cause the scene to be drawn multiple times. Did you mean to do this?", cam.name ));
 			}
 		}
 

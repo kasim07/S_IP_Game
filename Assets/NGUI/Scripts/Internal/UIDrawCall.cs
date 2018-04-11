@@ -334,7 +334,7 @@ public class UIDrawCall : MonoBehaviour
 			}
 			else if (mClipCount != 0)
 			{
-				Debug.LogError(shaderName + " shader doesn't have a clipped shader version for " + mClipCount + " clip regions");
+                UnityEngine.Debug.LogError(shaderName + " shader doesn't have a clipped shader version for " + mClipCount + " clip regions");
 			}
 		}
 		else
@@ -383,7 +383,7 @@ public class UIDrawCall : MonoBehaviour
 		else if (mRenderer.sharedMaterial != mDynamicMat)
 		{
 #if UNITY_EDITOR
-			Debug.LogError("Hmm... This point got hit!");
+            UnityEngine.Debug.LogError("Hmm... This point got hit!");
 #endif
 			mRenderer.sharedMaterials = new Material[] { mDynamicMat };
 		}
@@ -502,7 +502,7 @@ public class UIDrawCall : MonoBehaviour
 			{
 				mTriangles = 0;
 				if (mFilter.mesh != null) mFilter.mesh.Clear();
-				Debug.LogError("Too many vertices on one panel: " + verts.size);
+                UnityEngine.Debug.LogError("Too many vertices on one panel: " + verts.size);
 			}
 
 			if (mRenderer == null) mRenderer = gameObject.GetComponent<MeshRenderer>();
@@ -519,7 +519,7 @@ public class UIDrawCall : MonoBehaviour
 		else
 		{
 			if (mFilter.mesh != null) mFilter.mesh.Clear();
-			Debug.LogError("UIWidgets must fill the buffer with 4 vertices per quad. Found " + count);
+            UnityEngine.Debug.LogError("UIWidgets must fill the buffer with 4 vertices per quad. Found " + count);
 		}
 
 		verts.Clear();
@@ -621,7 +621,7 @@ public class UIDrawCall : MonoBehaviour
 						diff.z = NGUIMath.WrapAngle(diff.z);
 
 						if (Mathf.Abs(diff.x) > 0.001f || Mathf.Abs(diff.y) > 0.001f)
-							Debug.LogWarning("Panel can only be clipped properly if X and Y rotation is left at 0", panel);
+                            UnityEngine.Debug.LogWarning("Panel can only be clipped properly if X and Y rotation is left at 0", panel);
 
 						angle = diff.z;
 					}

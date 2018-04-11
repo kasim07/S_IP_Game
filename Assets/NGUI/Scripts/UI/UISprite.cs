@@ -377,7 +377,7 @@ public class UISprite : UIBasicSprite
 
 				if (mSprite == null)
 				{
-					Debug.LogError(mAtlas.name + " seems to have a null sprite!");
+                    UnityEngine.Debug.LogError(mAtlas.name + " seems to have a null sprite!");
 					return null;
 				}
 				mSpriteName = mSprite.name;

@@ -182,7 +182,7 @@ public class tk2dSpriteAnimationClip
 		if (wrapMode == tk2dSpriteAnimationClip.WrapMode.Single && frames.Length > 1)
 		{
 			frames = new tk2dSpriteAnimationFrame[] { frames[0] };
-			Debug.LogError(string.Format("Clip: '{0}' Fixed up frames for WrapMode.Single", name));
+            UnityEngine.Debug.LogError(string.Format("Clip: '{0}' Fixed up frames for WrapMode.Single", name));
 		}
 	}
 

@@ -722,7 +722,7 @@ public class tk2dTextMesh : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBui
 		{
 			if (_fontInst.version < 1)
 			{
-				Debug.LogError("Need to rebuild font.");
+                UnityEngine.Debug.LogError("Need to rebuild font.");
 			}
 
 			float zdist = (transform.position.z - cam.transform.position.z);

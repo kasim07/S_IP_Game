@@ -138,7 +138,7 @@ namespace tk2dEditor.SpriteCollectionBuilder
 						Texture2D tex = AssetDatabase.LoadAssetAtPath(platformTexture, typeof(Texture2D)) as Texture2D;
 						if (tex == null)
 						{
-							Debug.LogError("Unable to load platform specific texture '" + platformTexture + "'");
+                            UnityEngine.Debug.LogError("Unable to load platform specific texture '" + platformTexture + "'");
 						}
 						else
 						{
@@ -282,7 +282,7 @@ namespace tk2dEditor.SpriteCollectionBuilder
 
 		static void LogNotFoundError(string platformName, string assetName, string assetType)
 		{
-			Debug.LogError(string.Format("Unable to find platform specific {0} '{1}' for platform '{2}'", assetType, assetName, platformName));
+            UnityEngine.Debug.LogError(string.Format("Unable to find platform specific {0} '{1}' for platform '{2}'", assetType, assetName, platformName));
 		}
 
 	}

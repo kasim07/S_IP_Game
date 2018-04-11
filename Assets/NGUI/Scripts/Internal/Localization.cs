@@ -369,7 +369,7 @@ public static class Localization
 		if (mDictionary.ContainsKey(key))
 		{
 			mDictionary[key] = copy;
-			if (newLanguages == null) Debug.LogWarning("Localization key '" + key + "' is already present");
+			if (newLanguages == null) UnityEngine.Debug.LogWarning("Localization key '" + key + "' is already present");
 		}
 		else
 		{
@@ -379,7 +379,7 @@ public static class Localization
 			}
 			catch (System.Exception ex)
 			{
-				Debug.LogError("Unable to add '" + key + "' to the Localization dictionary.\n" + ex.Message);
+                UnityEngine.Debug.LogError("Unable to add '" + key + "' to the Localization dictionary.\n" + ex.Message);
 			}
 		}
 	}
@@ -483,7 +483,7 @@ public static class Localization
 
 		if (mLanguages == null)
 		{
-			Debug.LogError("No localization data present");
+            UnityEngine.Debug.LogError("No localization data present");
 			return null;
 		}
 
@@ -505,7 +505,7 @@ public static class Localization
 		{
 			mLanguageIndex = 0;
 			mLanguage = mLanguages[0];
-			Debug.LogWarning("Language not found: " + lang);
+            UnityEngine.Debug.LogWarning("Language not found: " + lang);
 		}
 
 		string val;
@@ -554,7 +554,7 @@ public static class Localization
 		if (mOldDictionary.TryGetValue(key, out val)) return val;
 
 #if UNITY_EDITOR
-		Debug.LogWarning("Localization key not found: '" + key + "' for language " + lang);
+        UnityEngine.Debug.LogWarning("Localization key not found: '" + key + "' for language " + lang);
 #endif
 		return key;
 	}

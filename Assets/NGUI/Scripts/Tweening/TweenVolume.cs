@@ -36,7 +36,7 @@ public class TweenVolume : UITweener
 
 					if (mSource == null)
 					{
-						Debug.LogError("TweenVolume needs an AudioSource to work with", this);
+                        UnityEngine.Debug.LogError("TweenVolume needs an AudioSource to work with", this);
 						enabled = false;
 					}
 				}

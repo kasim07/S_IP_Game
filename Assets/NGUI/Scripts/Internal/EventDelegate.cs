@@ -402,13 +402,13 @@ public class EventDelegate
 
 				if (mMethod == null)
 				{
-					Debug.LogError("Could not find method '" + mMethodName + "' on " + mTarget.GetType(), mTarget);
+                    UnityEngine.Debug.LogError("Could not find method '" + mMethodName + "' on " + mTarget.GetType(), mTarget);
 					return;
 				}
 				
 				if (mMethod.ReturnType != typeof(void))
 				{
-					Debug.LogError(mTarget.GetType() + "." + mMethodName + " must have a 'void' return type.", mTarget);
+                    UnityEngine.Debug.LogError(mTarget.GetType() + "." + mMethodName + " must have a 'void' return type.", mTarget);
 					return;
 				}
 
@@ -560,7 +560,7 @@ public class EventDelegate
 							msg += ", " + mParameters[i].type;
 					}
 					msg += "\n";
-					Debug.LogError(msg);
+                    UnityEngine.Debug.LogError(msg);
 				}
 
 				// Clear the parameters so that references are not kept
@@ -731,7 +731,7 @@ public class EventDelegate
 			list.Add(ed);
 			return ed;
 		}
-		Debug.LogWarning("Attempting to add a callback to a list that's null");
+        UnityEngine.Debug.LogWarning("Attempting to add a callback to a list that's null");
 		return null;
 	}
 
@@ -772,7 +772,7 @@ public class EventDelegate
 
 			list.Add(copy);
 		}
-		else Debug.LogWarning("Attempting to add a callback to a list that's null");
+		else UnityEngine.Debug.LogWarning("Attempting to add a callback to a list that's null");
 	}
 
 	/// <summary>

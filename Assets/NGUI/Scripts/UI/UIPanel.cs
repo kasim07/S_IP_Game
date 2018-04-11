@@ -1411,7 +1411,7 @@ public class UIPanel : UIRect
 				if (w == null)
 				{
 #if UNITY_EDITOR
-					Debug.LogError("This should never happen");
+                    UnityEngine.Debug.LogError("This should never happen");
 #endif
 					widgets.RemoveAt(i);
 					continue;

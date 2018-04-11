@@ -1480,7 +1480,7 @@ public static class NGUIEditorTools
 				EditorGUILayout.EndHorizontal();
 			}
 		}
-		else Debug.LogWarning("Unable to find property " + property);
+		else UnityEngine.Debug.LogWarning("Unable to find property " + property);
 		return sp;
 	}
 

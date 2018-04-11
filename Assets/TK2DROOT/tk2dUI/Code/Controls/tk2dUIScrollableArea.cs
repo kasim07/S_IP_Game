@@ -217,7 +217,7 @@ public class tk2dUIScrollableArea : MonoBehaviour
             return (scrollAxes == Axes.YAxis) ? (minMax[1].y - minMax[0].y) : (minMax[1].x - minMax[0].x);
         }
         else {
-            Debug.LogError("Unable to measure content length");
+            UnityEngine.Debug.LogError("Unable to measure content length");
             return VisibleAreaLength * 0.9f;
         }
     }

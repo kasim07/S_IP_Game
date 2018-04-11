@@ -522,7 +522,7 @@ public class tk2dSpriteCollectionData : MonoBehaviour
 		}
 		if (firstValidIndex == -1)
 		{
-			Debug.LogError("Init material ids failed.");
+            UnityEngine.Debug.LogError("Init material ids failed.");
 		}
 		else
 		{

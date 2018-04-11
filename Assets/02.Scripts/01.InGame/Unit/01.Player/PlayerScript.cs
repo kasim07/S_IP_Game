@@ -6,13 +6,20 @@ public class PlayerScript : UnitBase
     private void Awake()
     {
         GetScripts();
-        SetData(new UnitData(UnitType.Player, 3f, 10, 3, true));
+        SetData(new UnitData(UnitType.Player, 2f, 10, 3, true));
     }
 
-   public override void Shoot()
+    public override void Shoot()
     {
-        throw new System.NotImplementedException();
-    }
+        Debug.Log(m_Sprite.scale.x);
+        BulletScript bullet =
+            BulletManager.Instance.GetNewActiveBullet(
+                new UnitData(UnitType.PlayerBullet, 10f, 1, 1, true)
+                , GetPosition()
+                , SpriteNames.bullet_Normal
+                , new NormalBulletAction()
+            );
+    }    
 
     public override void Hit(uint damage)
     {
@@ -23,8 +30,4 @@ public class PlayerScript : UnitBase
     {
         throw new System.NotImplementedException();
     }
-
-    
-
-    
 }

@@ -228,7 +228,7 @@ namespace tk2dEditor.Font
 			
 			if (fontInfo == null || fontInfo.chars.Count == 0)
 			{
-				Debug.LogError("Font parsing returned 0 characters, check source bmfont file for errors");
+                UnityEngine.Debug.LogError("Font parsing returned 0 characters, check source bmfont file for errors");
 				return null;
 			}
 			
@@ -254,8 +254,8 @@ namespace tk2dEditor.Font
 			{
 				if (theChar.id > maxUnicodeChar)
 				{
-					// in most cases the font contains unwanted characters!
-					Debug.LogError("Unicode character id exceeds allowed limit: " + theChar.id.ToString() + ". Skipping.");
+                    // in most cases the font contains unwanted characters!
+                    UnityEngine.Debug.LogError("Unicode character id exceeds allowed limit: " + theChar.id.ToString() + ". Skipping.");
 					continue;
 				}
 				

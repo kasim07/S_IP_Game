@@ -354,7 +354,7 @@ class tk2dStaticSpriteBatcherEditor : Editor
 				if (bs.type == tk2dBatchedSprite.Type.TextMesh) {
 					tk2dTextMesh s = go.AddComponent<tk2dTextMesh>();
 					if (batcher.allTextMeshData == null || bs.xRefId == -1) {
-						Debug.LogError("Unable to find text mesh ref");
+                        UnityEngine.Debug.LogError("Unable to find text mesh ref");
 					}
 					else {
 						tk2dTextMeshData tmd = batcher.allTextMeshData[bs.xRefId];

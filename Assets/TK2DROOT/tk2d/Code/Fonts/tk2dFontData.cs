@@ -149,7 +149,7 @@ public class tk2dFontData : MonoBehaviour
 					}
 				}
 				if (materialInst == null && !needMaterialInstance) {
-					Debug.LogError("Fatal error - font from sprite collection is has an invalid material");
+                    UnityEngine.Debug.LogError("Fatal error - font from sprite collection is has an invalid material");
 				}
 			}
 			else

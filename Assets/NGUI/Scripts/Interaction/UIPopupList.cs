@@ -861,7 +861,7 @@ public class UIPopupList : UIWidgetContainer
 
 			if (source == null)
 			{
-				Debug.LogError("Popup list needs a source object...");
+                UnityEngine.Debug.LogError("Popup list needs a source object...");
 				return;
 			}
 

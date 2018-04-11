@@ -264,7 +264,7 @@ public class UIPrefabTool : EditorWindow
 
 				if (string.IsNullOrEmpty(guid))
 				{
-					Debug.LogWarning("Unable to save " + mItems[i].prefab.name);
+                    UnityEngine.Debug.LogWarning("Unable to save " + mItems[i].prefab.name);
 				}
 				else
 				{
@@ -368,7 +368,7 @@ public class UIPrefabTool : EditorWindow
 				GeneratePreview(ent, null);
 				return ent;
 			}
-			else Debug.Log("No GUID");
+			else UnityEngine.Debug.Log("No GUID");
 		}
 		return null;
 	}

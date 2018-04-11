@@ -134,7 +134,7 @@ public class tk2dSpriteAnimator : MonoBehaviour
 			if (_sprite == null) {
 				_sprite = GetComponent<tk2dBaseSprite>();
 				if (_sprite == null) {
-					Debug.LogError("Sprite not found attached to tk2dSpriteAnimator.");
+                    UnityEngine.Debug.LogError("Sprite not found attached to tk2dSpriteAnimator.");
 				}
 			}
 			return _sprite;
@@ -156,13 +156,13 @@ public class tk2dSpriteAnimator : MonoBehaviour
 	// This is used for Play("name") and has verbose error messages
 	tk2dSpriteAnimationClip GetClipByNameVerbose(string name) {
 		if (library == null) {
-			Debug.LogError("Library not set");
+            UnityEngine.Debug.LogError("Library not set");
 			return null;
 		}
 		else {
 			tk2dSpriteAnimationClip clip = library.GetClipByName( name );
 			if (clip == null) {
-				Debug.LogError("Unable to find clip '" + name + "' in library");
+                UnityEngine.Debug.LogError("Unable to find clip '" + name + "' in library");
 				return null;
 			}
 			else {
@@ -349,7 +349,7 @@ public class tk2dSpriteAnimator : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError("Calling clip.Play() with a null clip");
+            UnityEngine.Debug.LogError("Calling clip.Play() with a null clip");
 			OnAnimationCompleted();
 			state &= ~State.Playing;
 		}
@@ -556,7 +556,7 @@ public class tk2dSpriteAnimator : MonoBehaviour
 				}
 
 				default: {
-					Debug.LogError("Unhandled clip wrap mode");
+                        UnityEngine.Debug.LogError("Unhandled clip wrap mode");
 					goto case tk2dSpriteAnimationClip.WrapMode.Loop;
 				}
 			}
@@ -671,11 +671,11 @@ public class tk2dSpriteAnimator : MonoBehaviour
 
 	// Error helpers
 	void ClipNameError(string name) {
-		Debug.LogError("Unable to find clip named '" + name + "' in library");
+        UnityEngine.Debug.LogError("Unable to find clip named '" + name + "' in library");
 	}
 
 	void ClipIdError(int id) {
-		Debug.LogError("Play - Invalid clip id '" + id.ToString() + "' in library");
+        UnityEngine.Debug.LogError("Play - Invalid clip id '" + id.ToString() + "' in library");
 	}
 
 	// Warps the current active frame to the local time (i.e. float frame number) specified. 

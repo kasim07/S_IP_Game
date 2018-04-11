@@ -1059,7 +1059,7 @@ static public class NGUIMath
 
 		if (cam == null)
 		{
-			Debug.LogWarning("No camera found for layer " + layer);
+            UnityEngine.Debug.LogWarning("No camera found for layer " + layer);
 			return pos;
 		}
 
@@ -1082,7 +1082,7 @@ static public class NGUIMath
 
 		if (cam == null)
 		{
-			Debug.LogWarning("No camera found for layer " + layer);
+            UnityEngine.Debug.LogWarning("No camera found for layer " + layer);
 			return pos;
 		}
 

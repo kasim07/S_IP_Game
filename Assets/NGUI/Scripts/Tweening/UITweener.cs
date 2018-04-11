@@ -457,7 +457,7 @@ public abstract class UITweener : MonoBehaviour
 
 			if (comp == null)
 			{
-				Debug.LogError("Unable to add " + typeof(T) + " to " + NGUITools.GetHierarchy(go), go);
+                UnityEngine.Debug.LogError("Unable to add " + typeof(T) + " to " + NGUITools.GetHierarchy(go), go);
 				return null;
 			}
 		}

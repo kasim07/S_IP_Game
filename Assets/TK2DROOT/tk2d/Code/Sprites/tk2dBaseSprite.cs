@@ -257,7 +257,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 			SetSprite(spriteId);
 		}
 		else {
-			Debug.LogError("SetSprite - Sprite not found in collection: " + spriteName);
+            UnityEngine.Debug.LogError("SetSprite - Sprite not found in collection: " + spriteName);
 		}
 		return spriteId != -1;
 	}
@@ -290,7 +290,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 			SetSprite(newCollection, spriteId);
 		}
 		else {
-			Debug.LogError("SetSprite - Sprite not found in collection: " + spriteName);
+            UnityEngine.Debug.LogError("SetSprite - Sprite not found in collection: " + spriteName);
 		}
 		return spriteId != -1;
 	}
@@ -308,7 +308,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 		{
 			if (Collection.version < 2)
 			{
-				Debug.LogError("Need to rebuild sprite collection.");
+                UnityEngine.Debug.LogError("Need to rebuild sprite collection.");
 			}
 
 			float zdist = (transform.position.z - cam.transform.position.z);
@@ -330,7 +330,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 		}
 		else
 		{
-			Debug.LogError("Main camera not found.");
+            UnityEngine.Debug.LogError("Main camera not found.");
 		}
 		
 		
@@ -384,7 +384,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 	{
 		int spriteId = spriteCollection.GetSpriteIdByName(spriteName, -1);
 		if (spriteId == -1) {
-			Debug.LogError( string.Format("Unable to find sprite named {0} in sprite collection {1}", spriteName, spriteCollection.spriteCollectionName) );
+            UnityEngine.Debug.LogError( string.Format("Unable to find sprite named {0} in sprite collection {1}", spriteName, spriteCollection.spriteCollectionName) );
 			return null;
 		}
 		else {
@@ -756,7 +756,7 @@ public abstract class tk2dBaseSprite : MonoBehaviour, tk2dRuntime.ISpriteCollect
 				// This warning is not applicable in the editor
 				if (Application.isPlaying)
 				{
-					Debug.LogError("Invalid mesh collider on sprite '" + name + "', please remove and try again.");
+                    UnityEngine.Debug.LogError("Invalid mesh collider on sprite '" + name + "', please remove and try again.");
 				}
 			}
 			

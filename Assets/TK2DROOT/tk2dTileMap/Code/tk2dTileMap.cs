@@ -126,7 +126,7 @@ public class tk2dTileMap : MonoBehaviour, tk2dRuntime.ISpriteCollectionForceBuil
 		{
 			if (_inEditMode == true)
 			{
-				Debug.LogError("Tilemap " + name + " is still in edit mode. Please fix." +
+                UnityEngine.Debug.LogError("Tilemap " + name + " is still in edit mode. Please fix." +
 					"Building overhead will be significant.");
 				EndEditMode();
 			}

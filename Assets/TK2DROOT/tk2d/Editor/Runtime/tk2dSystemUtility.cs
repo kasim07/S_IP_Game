@@ -79,7 +79,7 @@ public class tk2dSystemUtility
 
 		if (tk2dSystem.inst.Editor__Toc.Length == toc.Count)
 		{
-			Debug.LogError("tk2dSystem.UnmakeLoadableAsset - Unable to delete asset");
+            UnityEngine.Debug.LogError("tk2dSystem.UnmakeLoadableAsset - Unable to delete asset");
 			return false;
 		}
 		else
@@ -221,7 +221,7 @@ public class tk2dSystemUtility
 				if (filename.IndexOf(systemFileName) != -1) continue; // don't delete system object
 				if (filename.IndexOf("tk2d_") == -1)
 				{
-					Debug.LogError(string.Format("Unknown file '{0}' in tk2d resources directory, ignoring.", filename));
+                    UnityEngine.Debug.LogError(string.Format("Unknown file '{0}' in tk2d resources directory, ignoring.", filename));
 					continue;
 				}
 				AssetDatabase.DeleteAsset(file);
@@ -270,7 +270,7 @@ public class tk2dSystemUtility
 				tk2dEditorUtility.CollectAndUnloadUnusedAssets();
 			}
 
-			Debug.Log(string.Format("Rebuilt {0} resources for tk2dSystem", sys.Editor__Toc.Length));
+            UnityEngine.Debug.Log(string.Format("Rebuilt {0} resources for tk2dSystem", sys.Editor__Toc.Length));
 		}
 
 		tk2dEditorUtility.CollectAndUnloadUnusedAssets();
@@ -282,7 +282,7 @@ public class tk2dSystemUtility
 		tk2dSpriteCollectionData data = AssetDatabase.LoadAssetAtPath(path, typeof(tk2dSpriteCollectionData)) as tk2dSpriteCollectionData;
 		if (data == null)
 		{
-			Debug.LogError(string.Format("Unable to load sprite collection '{0}' at path '{1}'", indexEntry.name, path));
+            UnityEngine.Debug.LogError(string.Format("Unable to load sprite collection '{0}' at path '{1}'", indexEntry.name, path));
 			return;
 		}
 		MakeLoadableAsset(data, indexEntry.managedSpriteCollection ? " " : data.assetName);
@@ -295,7 +295,7 @@ public class tk2dSystemUtility
 		tk2dFontData data = AssetDatabase.LoadAssetAtPath(path, typeof(tk2dFontData)) as tk2dFontData;
 		if (data == null)
 		{
-			Debug.LogError(string.Format("Unable to load font data '{0}' at path '{1}'", indexEntry.AssetName, path));
+            UnityEngine.Debug.LogError(string.Format("Unable to load font data '{0}' at path '{1}'", indexEntry.AssetName, path));
 			return;
 		}
 		MakeLoadableAsset(data, ""); // can't make it directly loadable, hence no asset name

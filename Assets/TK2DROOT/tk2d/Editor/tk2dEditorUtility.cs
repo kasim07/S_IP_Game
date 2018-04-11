@@ -450,7 +450,7 @@ public static class tk2dEditorUtility
 			}
 			catch { }
 			if (sortingLayerNamesPropInfo == null) {
-				Debug.Log("tk2dEditorUtility - Unable to get sorting layer names.");
+                UnityEngine.Debug.Log("tk2dEditorUtility - Unable to get sorting layer names.");
 			}
 		}
 

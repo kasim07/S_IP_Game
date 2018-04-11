@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyManager : SingletonManager<EnemyManager>
 {
-    [Header("Prefabs")]
+    [Header("Prefab")]
     [SerializeField]
     private EnemyScript m_EnemyPrefab;
     [Header("Parent")]

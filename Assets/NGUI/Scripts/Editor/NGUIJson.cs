@@ -54,7 +54,7 @@ public class NGUIJson
 
 		if (decodedHash == null)
 		{
-			Debug.LogWarning("Unable to parse Json file: " + asset.name);
+            UnityEngine.Debug.LogWarning("Unable to parse Json file: " + asset.name);
 		}
 		else LoadSpriteData(atlas, decodedHash);
 
@@ -74,7 +74,7 @@ public class NGUIJson
 
 		if (decodedHash == null)
 		{
-			Debug.LogWarning("Unable to parse the provided Json string");
+            UnityEngine.Debug.LogWarning("Unable to parse the provided Json string");
 		}
 		else LoadSpriteData(atlas, decodedHash);
 	}
@@ -179,7 +179,7 @@ public class NGUIJson
 
 		// Sort imported sprites alphabetically
 		atlas.spriteList.Sort(CompareSprites);
-		Debug.Log("Imported " + atlas.spriteList.Count + " sprites");
+        UnityEngine.Debug.Log("Imported " + atlas.spriteList.Count + " sprites");
 	}
 
 	/// <summary>

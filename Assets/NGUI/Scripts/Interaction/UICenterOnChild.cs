@@ -73,7 +73,7 @@ public class UICenterOnChild : MonoBehaviour
 
 			if (mScrollView == null)
 			{
-				Debug.LogWarning(GetType() + " requires " + typeof(UIScrollView) + " on a parent object in order to work", this);
+                UnityEngine.Debug.LogWarning(GetType() + " requires " + typeof(UIScrollView) + " on a parent object in order to work", this);
 				enabled = false;
 				return;
 			}

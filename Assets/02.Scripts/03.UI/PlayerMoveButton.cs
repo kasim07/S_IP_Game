@@ -13,7 +13,7 @@ public class PlayerMoveButton : MonoBehaviour {
         m_Player = PlayerManager.Instance.GetPlayer();
         m_PivotPosition = UICamera.mainCamera.WorldToScreenPoint(transform.position);
 
-        StartCoroutine(MoveCoroutine());
+        StartCoroutine(ActionCoroutine());
     }
 
     public void OnPress(bool isPress)
@@ -23,16 +23,17 @@ public class PlayerMoveButton : MonoBehaviour {
             m_IsPress = isPress;
         }
     }
-
-    private IEnumerator MoveCoroutine()
+    private IEnumerator ActionCoroutine()
     {
         while (true)
         {
             if (m_IsPress)
             {
-                m_Player.MovePosition(GetDirection() * m_Player.GetData().speed);
+                m_Player.Move(GetDirection() * m_Player.GetData().speed * Time.deltaTime);
             }
-            yield return cTime.m_WFS;
+            InputMoveKey();
+
+            yield return cTime.m_WaitDeltaTime;
         }
     }
 
@@ -41,9 +42,11 @@ public class PlayerMoveButton : MonoBehaviour {
         Vector2 dir = Vector2.zero;
         Vector2 pos = UICamera.lastEventPosition;
 
-        CDebug.Log(pos.y + " " + m_PivotPosition.y);
+        if (pos.y > m_PivotPosition.y)
+        {
+            return dir;
+        }
 
-        if (pos.y > m_PivotPosition.y) return dir;
         if(pos.x < m_PivotPosition.x)
         {
             dir = Vector2.left;
@@ -52,6 +55,19 @@ public class PlayerMoveButton : MonoBehaviour {
         {
             dir = Vector2.right;
         }
+        
         return dir;
+    }
+
+    private void InputMoveKey()
+    {
+        if(Input.GetKey(KeyCode.LeftArrow))
+        {
+            m_Player.Move(Vector2.left * m_Player.GetData().speed * Time.deltaTime);
+        }
+        else if(Input.GetKey(KeyCode.RightArrow))
+        {
+            m_Player.Move(Vector2.right * m_Player.GetData().speed * Time.deltaTime);
+        }
     }
 }

@@ -287,8 +287,8 @@ public static class tk2dSpriteGuiUtility
 				}
 			}
 		}
-		
-		Debug.LogError("Unable to find any sprite collections.");
+
+        UnityEngine.Debug.LogError("Unable to find any sprite collections.");
 		return null;
 	}
 		
@@ -393,7 +393,7 @@ public static class tk2dSpriteGuiUtility
 			
 			if (currentSelection == -1)
 			{
-				Debug.LogError("Unable to find sprite collection. This is a serious problem.");
+                UnityEngine.Debug.LogError("Unable to find sprite collection. This is a serious problem.");
 				GUILayout.Label(currentValue.spriteCollectionName, EditorStyles.popup);
 			}
 			else
@@ -404,7 +404,7 @@ public static class tk2dSpriteGuiUtility
 					tk2dSpriteCollectionData newData = GetSpriteCollectionDataAtIndex(newSelection, currentValue);
 					if (newData == null)
 					{
-						Debug.LogError("Unable to load sprite collection. Please rebuild index and try again.");
+                        UnityEngine.Debug.LogError("Unable to load sprite collection. Please rebuild index and try again.");
 					}
 					else if (newData.Count == 0)
 					{

@@ -13,7 +13,7 @@ namespace tk2dEditor.SpriteCollectionBuilder
 			}
 
 			if (gen.textureParams.Length != gen.linkParent.textureParams.Length) {
-				Debug.LogError("Linked sprite collection mismatch. Please rebuild source collection");
+                UnityEngine.Debug.LogError("Linked sprite collection mismatch. Please rebuild source collection");
 				gen.linkParent = null;
 			}
 		}
@@ -24,7 +24,7 @@ namespace tk2dEditor.SpriteCollectionBuilder
 				if (gen.linkParent.textureParams[i].texture == null ||
 					gen.linkParent.textureParams[i].texture.width != param.texture.width ||
 					gen.linkParent.textureParams[i].texture.height != param.texture.height) {
-					Debug.LogError("Linked sprite collection mismatch " + param.texture.name);
+                    UnityEngine.Debug.LogError("Linked sprite collection mismatch " + param.texture.name);
 				}
 			}			
 		}
@@ -74,7 +74,7 @@ namespace tk2dEditor.SpriteCollectionBuilder
 			}
 
 			if (errors.Length > 0) {
-				Debug.LogError("There were " + errorCount.ToString() + " errors building the sprite collection\n" + errors);
+                UnityEngine.Debug.LogError("There were " + errorCount.ToString() + " errors building the sprite collection\n" + errors);
 			}
 		}
 
