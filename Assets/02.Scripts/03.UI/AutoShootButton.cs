@@ -5,13 +5,13 @@ using UnityEngine;
 public class AutoShootButton : MonoBehaviour {
 
     private bool m_IsAutoShoot;
-    private WaitForSeconds m_ShootSpeed;
-
+    private CustomTimer m_Timer;
+    private UnitData m_PlayerData;
     private void Awake()
     {
+        m_PlayerData = PlayerManager.Instance.GetPlayer().GetData();
+        m_Timer = new CustomTimer(m_PlayerData.shootSpeed);
         m_IsAutoShoot = true;
-        m_ShootSpeed = new WaitForSeconds(0.5f);        
-        StartCoroutine(ShootingCoroutine());
     }
 
     public void OnClick()
@@ -19,15 +19,15 @@ public class AutoShootButton : MonoBehaviour {
         m_IsAutoShoot = !m_IsAutoShoot;
     }
 
-    private IEnumerator ShootingCoroutine()
+    private void Update()
     {
-        while (true)
+        if (m_IsAutoShoot)
         {
-            if (m_IsAutoShoot)
+            if (!m_Timer.Playing(m_PlayerData.shootSpeed))
             {
                 PlayerManager.Instance.Shoot();
+                m_Timer.ResetTimer();
             }
-            yield return m_ShootSpeed;
         }
     }
 }

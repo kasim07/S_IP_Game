@@ -32,33 +32,32 @@ public class UnitPooling<PoolObject> : IObjectPooling<PoolObject> where PoolObje
 
     public PoolObject GetDisableObject()
     {
-        int count = m_DisablePool.Count;
-
-        if (count == 0)
+        if (m_DisablePool.Count == 0)
         {
             CreateObjects(10);
         }
 
         PoolObject result = m_DisablePool[0];
+        SetEnableObject(result);
 
-        m_DisablePool.Remove(result);
-        m_EnablePool.Add(result);
-        
         return result;
     }
 
-    public void SetDisabeObject(PoolObject obj)
+    public void SetEnableObject(PoolObject obj)
     {
-        obj.SetActive(false);
+        m_EnablePool.Add(obj);
+        m_DisablePool.Remove(obj);
+    }
+
+    public void SetDisableObject(PoolObject obj)
+    {
         m_EnablePool.Remove(obj);
         m_DisablePool.Add(obj);
     }
 
     public void AllEnableAction()
     {
-        int count = m_EnablePool.Count;
-
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < m_EnablePool.Count; i++)
         {
             m_EnablePool[i].Action();
         }

@@ -18,38 +18,46 @@ public class BulletManager : SingletonManager<BulletManager>
     {
         m_BulletPool = new UnitPooling<BulletScript>();
         m_BulletPool.InitPoolingData(m_BulletPrefab,m_BulletParent, 30);
-        StartCoroutine(BulletActionCoroutine());
     }
 
     public BulletScript GetNewActiveBullet(
         UnitData data, Vector2 pos, string spriteName, IAction action)
     {
         BulletScript bullet = m_BulletPool.GetDisableObject();
-        InitBullet(data, pos, spriteName, bullet);
+
+        bullet.SetData(data);
+        if (data.type == UnitType.Player_Bullet)
+        {
+            bullet.SetTag(Tags.Player_Bullet);
+        }
+        else if (data.type == UnitType.Enemy_Bullet)
+        {
+            bullet.SetTag(Tags.Enemy_Bullet);
+        }
+
+        bullet.SetPosition(pos);
+        bullet.SetSpriteName(spriteName);
+        SetEnableBullet(bullet);
 
         action.InitData(bullet);
-        bullet.ChangeAction(action);
+        bullet.ChangeAction(action);       
 
         return bullet;
     }
 
-    private void InitBullet(UnitData data, Vector2 pos, string spriteName, UnitBase unit)
+    private void SetEnableBullet(BulletScript bullet)
     {
-        unit.SetData(data);
-        unit.SetPosition(pos);
-        unit.SetSpriteName(spriteName);
-        unit.SetActive(true);
+        bullet.SetActive(true);
+        m_BulletPool.SetEnableObject(bullet);
+    }
+    public void SetDisableBullet(BulletScript bullet)
+    {
+        bullet.SetActive(false);
+        m_BulletPool.SetDisableObject(bullet);
     }
 
-    private IEnumerator BulletActionCoroutine()
+    private void Update()
     {
-        while (true)
-        {
-            m_BulletPool.AllEnableAction();
-            yield return cTime.m_WaitDeltaTime;
-        }
-    }
-
-
-    
+        m_BulletPool.AllEnableAction();
+    }    
 }

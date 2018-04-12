@@ -3,12 +3,15 @@ using System.Collections;
 
 public class EnemyScript : UnitBase
 {
-    public override void Hit(uint damage)
+    // Test : Not use Awake plz Delete
+    private void Awake()
     {
-        throw new System.NotImplementedException();
+        //GetScripts();
+        //SetData(new UnitData(UnitType.Enemy, 2f, 10, 1, true));
     }
+
     public override void Dead()
     {
-        throw new System.NotImplementedException();
+        EnemyManager.Instance.SetDisableEnemy(this);
     }
 }

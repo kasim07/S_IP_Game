@@ -66,6 +66,16 @@ public abstract class UnitBase : MonoBehaviour, Itk2dSprite , IUnit, IPoolObject
         m_Sprite.SetSprite(name);
     }
 
+    public string GetTag()
+    {
+        return m_GameObject.tag;
+    }
+
+    public void SetTag(string str)
+    {
+        m_GameObject.tag = str;
+    }
+
     /// <summary>
     /// mul 100 (pixel per meter)
     /// </summary>
@@ -98,6 +108,13 @@ public abstract class UnitBase : MonoBehaviour, Itk2dSprite , IUnit, IPoolObject
 
     public virtual void Action() { }
     public virtual void Shoot() { }   
-    public virtual void Hit(uint damage) { }
+    public virtual void Hit(uint damage)
+    {
+        GetData().Hit(damage);
+        if(GetData().life == false)
+        {
+            Dead();
+        }
+    }
     public abstract void Dead();
 }

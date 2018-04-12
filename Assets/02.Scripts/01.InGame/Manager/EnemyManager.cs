@@ -27,9 +27,20 @@ public class EnemyManager : SingletonManager<EnemyManager>
 
         enemy.SetData(data);
         enemy.SetSpriteName(spriteName);
-        enemy.SetActive(true);
+        SetEnableEnemy(enemy);
 
         return enemy;
+    }
+
+    private void SetEnableEnemy(EnemyScript enemy)
+    {
+        enemy.SetActive(true);
+        m_EnemyPool.SetEnableObject(enemy);
+    }
+    public void SetDisableEnemy(EnemyScript enemy)
+    {
+        enemy.SetActive(false);
+        m_EnemyPool.SetDisableObject(enemy);
     }
 
 }

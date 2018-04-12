@@ -48,8 +48,9 @@ public class tk2dUpdateManager : MonoBehaviour {
 	}
 
 	void OnEnable() {
-		// for when the assembly is reloaded, coroutine is killed then
-		StartCoroutine(coSuperLateUpdate());
+        // for when the assembly is reloaded, coroutine is killed then
+
+        StartCoroutine(coSuperLateUpdate());
 	}
 
 	// One in late update
