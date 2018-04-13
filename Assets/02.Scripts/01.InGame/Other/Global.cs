@@ -44,3 +44,8 @@ public class Tags
     public const string Enemy_Bullet = "Enemy_Bullet";
 }
 
+public enum EnemyType
+{
+    Enemy_Normal,
+
+}
