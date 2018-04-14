@@ -104,21 +104,19 @@ public class EnemyBuildData
 {
     public UnitData baseData;
     public string spriteName;
-    public EnemyType enemyType;
 
     public EnemyBuildData()
     {
         SetData(new UnitData(UnitType.Enemy, 0f, 0f, 0, 0, 0, true)
-            , SpriteNames.Enemy_Normal
-            , EnemyType.Enemy_Normal);
+            , SpriteNames.Enemy_Normal);
     }
 
-    public EnemyBuildData(UnitData data, string spriteName, EnemyType type)
+    public EnemyBuildData(UnitData data, string spriteName)
     {
-        SetData(data, spriteName, type);
+        SetData(data, spriteName);
     }
 
-    public void SetData(UnitData data, string spriteName, EnemyType type)
+    public void SetData(UnitData data, string spriteName)
     {
         if(baseData == null)
         {
@@ -130,11 +128,16 @@ public class EnemyBuildData
         }
 
         this.spriteName = spriteName;
-        this.enemyType = type;
     }
 
     public void SetData(EnemyBuildData data)
     {
-        SetData(data.baseData, data.spriteName, data.enemyType);
+        SetData(data.baseData, data.spriteName);
     }
+}
+
+[Serializable]
+public class EnemyStageList
+{
+    private Dictionary<string, List<EnemyBuildData>> m_StageList;
 }
