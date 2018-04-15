@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IUnit {
-
     void Shoot();
     void Action();
     void Move(Vector2 position);
@@ -65,7 +64,6 @@ public class UnitData
         this.life = data.life;
     }
 
-
     public void Hit(int damage)
     {
         if(currentHealthPoint <= damage)
@@ -99,45 +97,3 @@ public class UnitData
     }
 }
 
-[Serializable]
-public class EnemyBuildData
-{
-    public UnitData baseData;
-    public string spriteName;
-
-    public EnemyBuildData()
-    {
-        SetData(new UnitData(UnitType.Enemy, 0f, 0f, 0, 0, 0, true)
-            , SpriteNames.Enemy_Normal);
-    }
-
-    public EnemyBuildData(UnitData data, string spriteName)
-    {
-        SetData(data, spriteName);
-    }
-
-    public void SetData(UnitData data, string spriteName)
-    {
-        if(baseData == null)
-        {
-            baseData = data;
-        }
-        else
-        {
-            baseData.Copy(data);
-        }
-
-        this.spriteName = spriteName;
-    }
-
-    public void SetData(EnemyBuildData data)
-    {
-        SetData(data.baseData, data.spriteName);
-    }
-}
-
-[Serializable]
-public class EnemyStageList
-{
-    private Dictionary<string, List<EnemyBuildData>> m_StageList;
-}

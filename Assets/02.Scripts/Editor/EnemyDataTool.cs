@@ -17,6 +17,20 @@ namespace Editors {
         private Texture2D selectTexture;
         private int selectIndex = -1;
         private string path = "Assets/Collection/Unit/UnitCollection.prefab";
+        private Vector2 tileScrollPosition;
+
+        static public void CreateWindow(EnemyBuildData data)
+        {
+            window = GetWindow<EnemyDataTool>("Enemy Data Tool");
+            window.InitData();
+            window.SetData(data);
+            window.Show();
+        }
+        static public void CloseWindow()
+        {
+            if (window != null)
+                window.Close();
+        }
 
         public void InitData()
         {
@@ -40,50 +54,56 @@ namespace Editors {
             selectTexture.SetPixel(0, 0, new Color(.5f, .5f, 1f, .5f));
             selectTexture.Apply();
         }
+        public void SetData(EnemyBuildData data)
+        {
+            this.data = data;
+        }
 
-        [MenuItem("CustumTool/Input Enemy Data")]
-        static public void CreateWindow()
-        {
-            window = GetWindow<EnemyDataTool>();
-            window.InitData();
-            window.Show();
-        }
-        [MenuItem("CustumTool/Close")]
-        static public void CloseWindow()
-        {
-            if(window != null)
-                window.Close();
-        }
         ///*
         private void OnGUI()
         {
+            SpriteButton();
+
+            GUILayout.Label("Input Data");
+            data.baseData.type = UnitType.Enemy;
+            data.baseData.moveSpeed = EditorGUILayout.FloatField("Move Speed", data.baseData.moveSpeed);
+            data.baseData.shootSpeed = EditorGUILayout.FloatField("Shoot Speed", data.baseData.shootSpeed);
+            data.baseData.damage = EditorGUILayout.IntField("Default Damage", data.baseData.damage);            
+            data.baseData.FillHealthPoint(EditorGUILayout.IntField("Health Point", data.baseData.maxHealthPoint));
+            data.baseData.lifePoint = EditorGUILayout.IntField("Life Point", data.baseData.lifePoint);
+            data.baseData.life = true;
+            
+            if (GUILayout.Button("Done"))
+            {
+                CloseWindow();
+            }
+        }
+        //*/
+
+        private void SpriteButton()
+        {
             int i = 0, j = 0;
             int x = 64, y = 64;
-
-                        
-
-            int columnCount = Mathf.RoundToInt((position.width) / 38) - 2;
+            int columnCount = Mathf.RoundToInt((position.width) / y) - 2;
 
             GUILayout.Label("Image Select");
-            Vector2 tileScrollPosition = Vector2.zero;
-
             tileScrollPosition = EditorGUILayout.BeginScrollView(tileScrollPosition, false, true, GUILayout.Width(position.width));
 
             GUILayout.BeginHorizontal();
-            int length = textures.Count;
-            
 
+            int length = textures.Count;
             for (int q = 0; q < length; q++)
             {
+                
                 if (GUILayout.Button(textures[q], GUILayout.Width(x + 8), GUILayout.Height(y + 8)))
                 {
                     data.spriteName = textures[q].name;
-                    selectIndex = q;                    
+                    selectIndex = q;
                 }
 
                 //GUI.DrawTexture(new Rect(8 + (j * (x + 12)), 8 + (i * (y + 8)), x, y), textures[q], ScaleMode.ScaleToFit);
 
-                if(q == selectIndex)
+                if (q == selectIndex)
                 {
                     GUI.DrawTexture(new Rect(8 + (j * (x + 12)), 8 + (i * (y + 8)), x, y), selectTexture, ScaleMode.ScaleToFit);
                 }
@@ -102,26 +122,8 @@ namespace Editors {
                 }
             }
 
-            GUILayout.EndHorizontal(); 
+            GUILayout.EndHorizontal();
             EditorGUILayout.EndScrollView();
-
-
-            GUILayout.Label("Input Data");
-            data.baseData.type = UnitType.Enemy;
-            data.baseData.moveSpeed = EditorGUILayout.FloatField("Move Speed", data.baseData.moveSpeed);
-            data.baseData.shootSpeed = EditorGUILayout.FloatField("Shoot Speed", data.baseData.shootSpeed);
-            data.baseData.damage = EditorGUILayout.IntField("Default Damage", data.baseData.damage);            
-            data.baseData.FillHealthPoint(EditorGUILayout.IntField("Health Point", data.baseData.maxHealthPoint));
-            data.baseData.lifePoint = EditorGUILayout.IntField("Life Point", data.baseData.lifePoint);
-            data.baseData.life = true;
-            
-            
-
-            if (GUILayout.Button("Done"))
-            {
-                CloseWindow();
-            }
         }
-        //*/
     }
 }

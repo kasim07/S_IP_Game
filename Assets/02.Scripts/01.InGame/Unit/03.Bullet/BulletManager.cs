@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BulletManager : SingletonManager<BulletManager>
 {
@@ -9,7 +10,6 @@ public class BulletManager : SingletonManager<BulletManager>
     [Header("Parent")]
     [SerializeField]
     private Transform m_BulletParent;
-
     private UnitPooling<BulletScript> m_BulletPool;
 
     protected BulletManager() { }

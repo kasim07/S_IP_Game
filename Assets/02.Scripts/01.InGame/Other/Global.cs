@@ -35,6 +35,14 @@ public enum UnitType
     Enemy_Bullet,
 }
 
+public enum ColorType
+{
+    Red,
+    Green,
+    Yellow,
+    Blue,
+    Purple,
+}
 
 public class Tags
 {

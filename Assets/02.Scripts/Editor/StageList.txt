@@ -1,0 +1,1 @@
+{"m_StageList":{"1_1":[{"baseData":{"type":"Enemy","moveSpeed":0,"shootSpeed":0,"damage":0,"maxHealthPoint":0,"currentHealthPoint":0,"lifePoint":0,"life":true},"spriteName":"Enemy_Normal"}]}}
