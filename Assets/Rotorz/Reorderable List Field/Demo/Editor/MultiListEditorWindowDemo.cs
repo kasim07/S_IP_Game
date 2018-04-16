@@ -147,24 +147,21 @@ public class MultiListEditorWindowDemo : EditorWindow {
 
 	}
 
-	private List<int> _shoppingList;
-	private Editors.RotorzListAdaptor<int> _shoppingListAdaptor;
+	private List<string> _shoppingList;
+	private ExampleListAdaptor _shoppingListAdaptor;
 
 	private List<string> _purchaseList;
-	private Editors.RotorzListAdaptor<string> _purchaseListAdaptor;
+	private ExampleListAdaptor _purchaseListAdaptor;
 
 	private void OnEnable() {
-        //_shoppingList = new List<string>() { "Bread", "Carrots", "Beans", "Steak", "Coffee", "Fries" };
-        //_shoppingListAdaptor = new Editors.RotorzListAdaptor<string>(_shoppingList);
+		_shoppingList = new List<string>() { "Bread", "Carrots", "Beans", "Steak", "Coffee", "Fries" };
+		_shoppingListAdaptor = new ExampleListAdaptor(_shoppingList);
 
-        _shoppingList = new List<int>() { 0, 1, 2, 3, 4, 5 };
-        _shoppingListAdaptor = new Editors.RotorzListAdaptor<int>(_shoppingList);
-
-        _purchaseList = new List<string>() { "Cheese", "Crackers" };
-		_purchaseListAdaptor = new Editors.RotorzListAdaptor<string>(_purchaseList);
+		_purchaseList = new List<string>() { "Cheese", "Crackers" };
+		_purchaseListAdaptor = new ExampleListAdaptor(_purchaseList);
 	}
 
-	private void OnGUI() { 
+	private void OnGUI() {
 		GUILayout.BeginHorizontal();
 
 		var columnWidth = GUILayout.Width(position.width / 2f - 6);

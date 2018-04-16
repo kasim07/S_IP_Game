@@ -65,6 +65,8 @@ namespace Editors {
             SpriteButton();
 
             GUILayout.Label("Input Data");
+            var columnWidth = GUILayout.Width(position.width / 2f - 6f);
+            GUILayout.BeginVertical(columnWidth);
             data.baseData.type = UnitType.Enemy;
             data.baseData.moveSpeed = EditorGUILayout.FloatField("Move Speed", data.baseData.moveSpeed);
             data.baseData.shootSpeed = EditorGUILayout.FloatField("Shoot Speed", data.baseData.shootSpeed);
@@ -72,7 +74,20 @@ namespace Editors {
             data.baseData.FillHealthPoint(EditorGUILayout.IntField("Health Point", data.baseData.maxHealthPoint));
             data.baseData.lifePoint = EditorGUILayout.IntField("Life Point", data.baseData.lifePoint);
             data.baseData.life = true;
-            
+
+            Vector2 size = new Vector2(data.size.x, data.size.y);
+            size = EditorGUILayout.Vector2Field("Size", size);
+            data.size = new cVector2(size.x, size.y);
+
+            //Vector2 size = data.size.GetVector();
+            //size = EditorGUILayout.Vector2Field("Size", size);
+            //data.size.SetVector(size);
+
+            data.colorType = (ColorType)EditorGUILayout.EnumPopup("Color Type", data.colorType);
+            //data.waitTime = EditorGUILayout.FloatField("Wait Time",data.waitTime);
+            //data.holdUntilDead = EditorGUILayout.Toggle("Hold end ReStart Time", data.holdUntilDead);
+            GUILayout.EndVertical();
+
             if (GUILayout.Button("Done"))
             {
                 CloseWindow();

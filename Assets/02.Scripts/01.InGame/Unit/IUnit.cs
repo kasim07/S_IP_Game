@@ -35,6 +35,11 @@ public class UnitData
     public int lifePoint;
     public bool life;
 
+    public UnitData()
+    {
+        SetData(UnitType.Enemy, 0f, 0f, 0, 0, 0, true);
+    }
+
     public UnitData(UnitType type, float moveSpeed, float shootSpeed, int damage, int healthPoint, int lifePoint, bool life)
     {
         SetData(type, moveSpeed, shootSpeed, damage, healthPoint, lifePoint, life);

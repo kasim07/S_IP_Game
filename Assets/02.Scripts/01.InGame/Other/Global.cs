@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System;
 
 public class FunctionName
 {
@@ -26,7 +26,7 @@ public class SpriteNames
     public const string Bullet_Normal = "Bullet_Normal";
 
 }
-
+[Serializable]
 public enum UnitType
 {
     Player,
@@ -34,9 +34,10 @@ public enum UnitType
     Player_Bullet,
     Enemy_Bullet,
 }
-
+[Serializable]
 public enum ColorType
 {
+    White,
     Red,
     Green,
     Yellow,

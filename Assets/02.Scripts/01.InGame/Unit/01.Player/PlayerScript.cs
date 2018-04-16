@@ -15,7 +15,7 @@ public class PlayerScript : UnitBase
                 new UnitData(UnitType.Player_Bullet, 5f, 0f, 1, 1, 1, true)
                 , GetPosition()
                 , SpriteNames.Bullet_Normal
-                , new NormalBulletAction()
+                , new BulletNormalAction()
             );
     }
 

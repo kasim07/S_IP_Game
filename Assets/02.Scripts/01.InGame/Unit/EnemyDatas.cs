@@ -4,30 +4,67 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
+public class cVector2
+{
+    public float x, y;
+
+    public cVector2()
+    {
+        x = 0f;
+        y = 0f;
+    }
+
+    public cVector2(float x, float y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    //public Vector2 GetVector()
+    //{
+    //    return new Vector2(x, y);
+    //}
+
+    //public void SetVector(Vector2 vec)
+    //{
+    //    x = vec.x;
+    //    y = vec.y;
+    //}
+}
+
+[Serializable]
 public class EnemyBuildData
 {
     public UnitData baseData;
     public string spriteName;
-    //public float waitTime;
-    //public bool isPrevDead;
-    //public ColorType colorType;
-    //public Vector2 size;
+    
+    public cVector2 size;
+    public ColorType colorType;
+    public ActionType actionType;
+
+    public float waitTime;
+    public bool holdUntilDead;
 
     //fix Action -> id
     //public IAction action;
 
     public EnemyBuildData()
     {
-        SetData(new UnitData(UnitType.Enemy, 0f, 0f, 0, 0, 0, true)
-            , SpriteNames.Enemy_Normal);
+        SetData(new UnitData()
+            , SpriteNames.Enemy_Normal
+            , new cVector2(1f, 1f)
+            , ColorType.White
+            , ActionType.Enemy_Normal
+            , 1f
+            , false);
     }
 
-    public EnemyBuildData(UnitData data, string spriteName)
+    public EnemyBuildData(UnitData data, string spriteName, cVector2 size, ColorType colorType, ActionType actionType, float waitTime, bool holdUntilDead)
     {
-        SetData(data, spriteName);
+        SetData(data, spriteName, size, colorType, actionType, waitTime, holdUntilDead);
     }
 
-    public void SetData(UnitData data, string spriteName)
+    public void SetData(UnitData data, string spriteName, cVector2 size, ColorType colorType, ActionType actionType, float waitTime, bool holdUntilDead)
     {
         if (baseData == null)
         {
@@ -39,20 +76,40 @@ public class EnemyBuildData
         }
 
         this.spriteName = spriteName;
+        this.size = size;
+        this.colorType = colorType;
+        this.actionType = actionType;
+        this.waitTime = waitTime;
+        this.holdUntilDead = holdUntilDead;
     }
 
     public void SetData(EnemyBuildData data)
     {
-        SetData(data.baseData, data.spriteName);
+        SetData(data.baseData, data.spriteName, data.size, data.colorType, data.actionType, data.waitTime, data.holdUntilDead);
     }
 }
 
+
+[Serializable]
+public class EnemyStageDictionary
+{
+    public Dictionary<string, EnemyStageList> m_Dictionary = new Dictionary<string, EnemyStageList>();
+
+    public EnemyStageDictionary()
+    {
+    }
+}
 [Serializable]
 public class EnemyStageList
 {
-    public Dictionary<string, List<EnemyBuildData>> m_StageList = new Dictionary<string, List<EnemyBuildData>>();
+    public List<EnemyBuildData> m_List = new List<EnemyBuildData>();
 
     public EnemyStageList()
     {
+    }
+
+    public EnemyStageList(List<EnemyBuildData> data)
+    {
+        m_List = data;
     }
 }
