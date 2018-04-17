@@ -43,7 +43,7 @@ public class EnemyBuildData
     public ActionType actionType;
 
     public float waitTime;
-    public bool holdUntilDead;
+    public bool holdTimeUntilDead;
 
     //fix Action -> id
     //public IAction action;
@@ -59,12 +59,12 @@ public class EnemyBuildData
             , false);
     }
 
-    public EnemyBuildData(UnitData data, string spriteName, cVector2 size, ColorType colorType, ActionType actionType, float waitTime, bool holdUntilDead)
+    public EnemyBuildData(UnitData data, string spriteName, cVector2 size, ColorType colorType, ActionType actionType, float waitTime, bool holdTimeUntilDead)
     {
-        SetData(data, spriteName, size, colorType, actionType, waitTime, holdUntilDead);
+        SetData(data, spriteName, size, colorType, actionType, waitTime, holdTimeUntilDead);
     }
 
-    public void SetData(UnitData data, string spriteName, cVector2 size, ColorType colorType, ActionType actionType, float waitTime, bool holdUntilDead)
+    public void SetData(UnitData data, string spriteName, cVector2 size, ColorType colorType, ActionType actionType, float waitTime, bool holdTimeUntilDead)
     {
         if (baseData == null)
         {
@@ -80,12 +80,25 @@ public class EnemyBuildData
         this.colorType = colorType;
         this.actionType = actionType;
         this.waitTime = waitTime;
-        this.holdUntilDead = holdUntilDead;
+        this.holdTimeUntilDead = holdTimeUntilDead;
     }
 
     public void SetData(EnemyBuildData data)
     {
-        SetData(data.baseData, data.spriteName, data.size, data.colorType, data.actionType, data.waitTime, data.holdUntilDead);
+        if (data == null)
+        {
+            SetData(new UnitData()
+            , SpriteNames.Enemy_Normal
+            , new cVector2(1f, 1f)
+            , ColorType.White
+            , ActionType.Enemy_Normal
+            , 1f
+            , false);
+        }
+        else
+        {
+            SetData(data.baseData, data.spriteName, data.size, data.colorType, data.actionType, data.waitTime, data.holdTimeUntilDead);
+        }
     }
 }
 

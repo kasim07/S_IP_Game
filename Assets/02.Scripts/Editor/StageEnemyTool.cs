@@ -16,6 +16,7 @@ namespace Editors
         static private string[] stageNames;
         private Vector2 _scrollPosition;
         private int frontLevel = 1, backLevel = 1;
+        private EnemyStageList copyDataList;
 
         [MenuItem("CustumTools/Stage Enemy Data")]
         static public void CreateWindow()
@@ -97,7 +98,8 @@ namespace Editors
         private void ViewList(string stageName, EnemyStageList stageList)
         {
             _scrollPosition = GUILayout.BeginScrollView(_scrollPosition);
-
+            copyDataList = stageList;
+            
             ReorderableListGUI.Title(stageName + " Stage");
             ReorderableListGUI.ListField(stageList.m_List, PendingItemDrawer, DrawEmpty);
 
@@ -108,8 +110,12 @@ namespace Editors
         {
             if(itemValue == null)
             {
-                itemValue = new EnemyBuildData();                   
+                itemValue = new EnemyBuildData();
+
+                if(copyDataList.m_List.Count > 1)
+                    itemValue.SetData(copyDataList.m_List[copyDataList.m_List.Count - 2]);
             }
+
             pos.width -= 450;
             EditorGUI.LabelField(pos, itemValue.spriteName);
 
@@ -129,7 +135,7 @@ namespace Editors
             pos.x = pos.xMax + 5;            
             EditorGUI.LabelField(pos, "Hold");
             pos.x = pos.xMax + 5;
-            itemValue.holdUntilDead = EditorGUI.Toggle(pos, itemValue.holdUntilDead);
+            itemValue.holdTimeUntilDead = EditorGUI.Toggle(pos, itemValue.holdTimeUntilDead);
 
             pos.x = pos.xMax + 5;
             pos.width = 45;
